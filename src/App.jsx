@@ -28,7 +28,7 @@ import {
 // ============================================================================
 const BEVERAGE_SUBCATEGORIES = [
   { id: "sin-alcohol", name: { es: "Sin Alcohol", en: "Non-Alcoholic" }, icon: CupSoda },
-  { id: "jugos-aguas", name: { es: "Jugos y Aguas", en: "Juices & Waters" }, icon: GlassWater },
+  { id: "jugos-aguas", name: { es: "Jugos y Aguas", en: "Juices & Water" }, icon: GlassWater },
   { id: "cocteles", name: { es: "Cócteles", en: "Cocktails" }, icon: Martini },
   { id: "shots-rondas", name: { es: "Shots / Rondas", en: "Shots / Rounds" }, icon: Martini },
   { id: "cervezas", name: { es: "Cervezas", en: "Beers" }, icon: Beer },
