@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   Search,
   Globe,
@@ -138,8 +138,8 @@ const MENU_DATA = {
     { id: "tos-3", categoryId: "mariscos-frios", name: { es: "Tostada de Ceviche o Aguachile con Pulpo", en: "Ceviche or Aguachile Tostada with Octopus" }, description: { es: "Tostada de ceviche/aguachile con pulpo.", en: "Ceviche/aguachile tostada topped with octopus." }, price: 18.00, image: "", tags: ["popular"], spicyLevel: 1 },
     { id: "tos-4", categoryId: "mariscos-frios", name: { es: "Tostada de Aguachile", en: "Aguachile Tostada" }, description: { es: "A elegir: verde, rojo, negro, piquín, al guacamole o mango habanero.", en: "Choice of: green, red, black, piquin, guacamole or mango habanero." }, price: 14.99, image: "/images/tostadaaguachile.jpeg", tags: [], spicyLevel: 2 },
     { id: "chi-1", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro", en: "Santa María del Oro Style Fish Chicharrón" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 32.99, image: "", spicyLevel: 0 },
-    { id: "chi-2", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro (Para 4 personas)", en: "Santa María del Oro Style Fish Chicharrón (Serves 4)" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 115.00, image: "images/chicharron.png", tags: ["chef", "popular"], spicyLevel: 0 },
-    { id: "bal-1", categoryId: "mariscos-frios", name: { es: "Balazos", en: "Balazos (Spicy Shrimp Shots)" }, description: { es: "Shot de camarón curtido en limón con clamato y salsa picante estilo Nayarit.", en: "Lime-cured shrimp shot with clamato and spicy Nayarit-style sauce." }, price: 26.00, image: "images/balazo.jpeg", spicyLevel: 2 },
+    { id: "chi-2", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro (Para 4 personas)", en: "Santa María del Oro Style Fish Chicharrón (Serves 4)" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 115.00, image: "images/chicharron.png", spicyLevel: 0 },
+    { id: "bal-1", categoryId: "mariscos-frios", name: { es: "Balazos", en: "Balazos (Spicy Shrimp Shots)" }, description: { es: "Shot de camarón curtido en limón con clamato y salsa picante estilo Nayarit.", en: "Lime-cured shrimp shot with clamato and spicy Nayarit-style sauce." }, price: 26.00, image: "images/bal.png", spicyLevel: 2 },
     // --- CORTES & PARRILLA ---
     { id: "esp-1", categoryId: "cortes", name: { es: "Steak Sirloin (8 oz)", en: "Sirloin Steak (8 oz)" }, description: { es: "Corte de Sirloin 8 oz. Incluye 2 acompañamientos a elegir.", en: "8 oz Sirloin cut. Includes choice of 2 sides." }, price: 26.99, image: "", spicyLevel: 0 },
     { id: "esp-2", categoryId: "cortes", name: { es: "Steak T-Bone (12 oz)", en: "T-Bone Steak (12 oz)" }, description: { es: "Corte T-Bone 12 oz. Incluye 2 acompañamientos a elegir.", en: "12 oz T-Bone cut. Includes choice of 2 sides." }, price: 31.99, image: "images/steak2.jpeg", spicyLevel: 0 },
@@ -306,6 +306,33 @@ const MENU_DATA = {
   ]
 };
 
+function useSwipe({ onSwipeRight, onSwipeDown, minDistance = 70 }) {
+  const start = useRef(null);
+
+  return {
+    onTouchStart: (e) => {
+      const t = e.touches[0];
+      start.current = { x: t.clientX, y: t.clientY };
+    },
+    onTouchEnd: (e) => {
+      if (!start.current) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - start.current.x;
+      const dy = t.clientY - start.current.y;
+      start.current = null;
+
+      // Deslizamiento horizontal de izquierda a derecha
+      if (Math.abs(dx) > Math.abs(dy) * 1.5 && dx > minDistance) {
+        onSwipeRight?.();
+      }
+      // Deslizamiento vertical de arriba hacia abajo
+      else if (Math.abs(dy) > Math.abs(dx) * 1.5 && dy > minDistance) {
+        onSwipeDown?.();
+      }
+    },
+  };
+}
+
 export default function App() {
   const [language, setLanguage] = useState('es');
   // view: 'home' (grid de categorías) | 'category' (items de una categoría normal)
@@ -368,6 +395,24 @@ export default function App() {
     setSelectedSubcategory(null);
   };
 
+  // Deslizar a la derecha en la página = volver atrás
+const pageSwipe = useSwipe({
+  onSwipeRight: () => {
+    if (selectedItem || isSearching) return; // no aplica con el modal abierto o buscando
+    if (view === 'bebidas-sub') goBackToBebidas();
+    else if (view !== 'home') goHome();
+  },
+});
+
+// Deslizar hacia abajo en el modal = cerrarlo
+const modalScrollRef = useRef(null);
+const modalSwipe = useSwipe({
+  onSwipeDown: () => {
+    // Solo cierra si el contenido está hasta arriba (para no chocar con el scroll)
+    if ((modalScrollRef.current?.scrollTop ?? 0) === 0) setSelectedItem(null);
+  },
+});
+
   const isSearching = searchQuery.trim().length > 0;
 
   const filteredItems = useMemo(() => {
@@ -424,7 +469,7 @@ export default function App() {
     : '';
 
   return (
-    <div className="min-h-screen bg-[#0B0B0B] text-[#F9F9FB] font-sans selection:bg-[#C5A880] selection:text-black pb-20">
+    <div {...pageSwipe}  className="min-h-screen bg-[#0B0B0B] text-[#F9F9FB] font-sans selection:bg-[#C5A880] selection:text-black pb-20">
 
       {/* HEADER SUPERIOR */}
       <header className="sticky top-0 z-40 bg-[#0B0B0B]/95 backdrop-blur-md border-b border-neutral-800">
@@ -656,6 +701,7 @@ export default function App() {
           onClick={() => setSelectedItem(null)}
         >
           <div
+          {...modalSwipe}
             className="bg-[#121212] border border-neutral-800 rounded-t-2xl sm:rounded-2xl w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -695,7 +741,7 @@ export default function App() {
             </div>
 
 
-            <div className="p-6 overflow-y-auto flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div ref={modalScrollRef} className="p-6 overflow-y-auto flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex items-start justify-between gap-4 mt-2">
                 <h2 className="text-xl font-medium text-white font-serif leading-snug">
                   {selectedItem.name[language]}
