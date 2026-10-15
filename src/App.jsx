@@ -21,7 +21,8 @@ import {
   Beer,
   GlassWater,
   CupSoda,
-  Grape
+  Grape,
+  Subtitles
 } from 'lucide-react';
 
 // ============================================================================
@@ -66,7 +67,7 @@ const MENU_DATA = {
     // --- 1. DESAYUNOS ---
     { id: "des-1", categoryId: "desayunos", name: { es: "Chilaquiles Verdes o Rojos Naturales", en: "Natural Red or Green Chilaquiles" }, description: { es: "Salsa roja o verde, crema y queso.", en: "Red or green salsa, cream and cheese." }, price: 16.99, image: "", tags: ["popular"], spicyLevel: 1 },
     { id: "des-2", categoryId: "desayunos", name: { es: "Chilaquiles con Proteína (Asada, Chorizo, Pollo o Huevo)", en: "Chilaquiles with Protein (Steak, Chorizo, Chicken or Egg)" }, description: { es: "Acompañados de tu proteína a elegir, crema y queso.", en: "Topped with your choice of protein, cream and cheese." }, price: 22.00, image: "/images/chilaquiles.jpeg", tags: [], spicyLevel: 1 },
-    { id: "des-3", categoryId: "desayunos", name: { es: "Chilaquiles con Arrachera", en: "Skirt Steak Chilaquiles" }, description: { es: "Servidos con jugosa carne de arrachera, crema y queso.", en: "Served with juicy skirt steak, cream and cheese." }, price: 30.00, image: "", tags: ["chef"], spicyLevel: 1 },
+    { id: "des-3", categoryId: "desayunos", name: { es: "Chilaquiles con Arrachera", en: "Skirt Steak Chilaquiles" }, description: { es: "Servidos con jugosa carne de arrachera, crema y queso.", en: "Served with juicy skirt steak, cream and cheese." }, price: 30.00, image: "", spicyLevel: 1 },
     { id: "des-4", categoryId: "desayunos", name: { es: "Enchiladas Rojas y Verdes Naturales de Queso", en: "Cheese Red & Green Enchiladas" }, description: { es: "Rellenas de queso fresco.", en: "Stuffed with fresh cheese." }, price: 16.99, image: "", tags: [], spicyLevel: 1 },
     { id: "des-5", categoryId: "desayunos", name: { es: "Enchiladas de Pollo", en: "Chicken Enchiladas" }, description: { es: "Con lechuga, cilantro, crema, queso y cebolla en medias lunas.", en: "Topped with lettuce, cilantro, cream, cheese and sliced onions." }, price: 22.00, image: "", tags: ["popular"], spicyLevel: 1 },
     { id: "des-6", categoryId: "desayunos", name: { es: "Huevos Estrellados", en: "Fried Eggs" }, description: { es: "Dos huevos fritos al gusto.", en: "Two eggs cooked to order." }, price: 16.00, image: "", tags: [], spicyLevel: 0 },
@@ -74,7 +75,7 @@ const MENU_DATA = {
     { id: "des-8", categoryId: "desayunos", name: { es: "Huevos con Jamón, Chorizo, Tocino o Salchicha", en: "Eggs with Ham, Chorizo, Bacon or Sausage" }, description: { es: "Acompañados de tu proteína favorita.", en: "Scrambled with your favorite protein." }, price: 20.00, image: "", tags: [], spicyLevel: 0 },
     { id: "des-9", categoryId: "desayunos", name: { es: "Huevos con Machaca", en: "Shredded Beef with Eggs (Machaca)" }, description: { es: "Carne deshebrada con tomate, cebolla y jalapeño.", en: "Shredded dried beef scrambled with tomato, onion and jalapeño." }, price: 22.00, image: "", tags: ["popular"], spicyLevel: 1 },
     { id: "des-10", categoryId: "desayunos", name: { es: "Huevos Rancheros", en: "Huevos Rancheros" }, description: { es: "Servidos sobre tortilla con salsa verde y salsa roja.", en: "Served over tortillas with red and green salsa." }, price: 20.00, image: "", tags: [], spicyLevel: 1 },
-    { id: "des-11", categoryId: "desayunos", name: { es: "Desayuno Americano", en: "American Breakfast Combo" }, description: { es: "2 huevos al gusto, tocino, hash browns y pancakes o pan tostado.", en: "2 eggs any style, bacon, hash browns and pancakes or toast." }, price: 19.99, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "des-11", categoryId: "desayunos", name: { es: "Desayuno Americano", en: "American Breakfast Combo" }, description: { es: "2 huevos al gusto, tocino, hash browns y pancakes o pan tostado.", en: "2 eggs any style, bacon, hash browns and pancakes or toast." }, price: 19.99, image: "", spicyLevel: 0 },
     { id: "des-12", categoryId: "desayunos", name: { es: "Omelette Vegetariano", en: "Veggie Omelette" }, description: { es: "Tomate, cebolla, jalapeño o en salsa roja/verde.", en: "Tomato, onion, jalapeño or topped with red/green salsa." }, price: 16.99, image: "", tags: [], spicyLevel: 0 },
     { id: "des-13", categoryId: "desayunos", name: { es: "Omelette de Champiñones o Espinacas", en: "Mushroom or Spinach Omelette" }, description: { es: "Relleno de champiñones frescos o espinacas.", en: "Stuffed with fresh mushrooms or spinach." }, price: 21.99, image: "", tags: [], spicyLevel: 0 },
     { id: "des-14", categoryId: "desayunos", name: { es: "Omelette de Carnes (Jamón, Chorizo, Salchicha o Tocino)", en: "Meat Lover's Omelette" }, description: { es: "Relleno con tu carne fría favorita.", en: "Stuffed with your favorite breakfast meat." }, price: 21.99, image: "", tags: [], spicyLevel: 0 },
@@ -84,8 +85,8 @@ const MENU_DATA = {
     { id: "des-18", categoryId: "desayunos", name: { es: "Breakfast Quesadilla (Jamón, Chorizo, Salchicha, Pollo o Asada)", en: "Breakfast Quesadilla (Ham, Chorizo, Sausage, Chicken or Steak)" }, description: { es: "Queso derretido con tu proteína a elegir.", en: "Melted cheese quesadilla with your choice of protein." }, price: 20.00, image: "", tags: [], spicyLevel: 0 },
     { id: "des-19", categoryId: "desayunos", name: { es: "Breakfast Quesadilla de Champiñones o Espinacas", en: "Mushroom or Spinach Breakfast Quesadilla" }, description: { es: "Queso derretido con champiñones o espinacas.", en: "Melted cheese quesadilla with fresh mushrooms or spinach." }, price: 21.99, image: "", tags: [], spicyLevel: 0 },
     { id: "des-20", categoryId: "desayunos", name: { es: "Sandwich Especial de Desayuno", en: "Special Breakfast Sandwich" }, description: { es: "Tocino, huevo, jamón, lechuga, cebolla y tomate.", en: "Bacon, egg, ham, lettuce, onion and tomato." }, price: 18.99, image: "/images/sandwich.jpeg", tags: [], spicyLevel: 0 },
-    { id: "des-21", categoryId: "desayunos", name: { es: "Pancakes Naturales", en: "Classic Pancakes" }, description: { es: "Esponjosos hotcakes tradicionales.", en: "Fluffy traditional pancakes." }, price: 12.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "des-22", categoryId: "desayunos", name: { es: "Gorditas de Queso (Orden de 3)", en: "Cheese Gorditas (Order of 3)" }, description: { es: "Masa de maíz con jalapeño y queso.", en: "Thick corn tortillas stuffed with cheese and jalapeño." }, price: 21.00, image: "", tags: ["chef"], spicyLevel: 1 },
+    { id: "des-21", categoryId: "desayunos", name: { es: "Pancakes Naturales", en: "Classic Pancakes" }, description: { es: "Esponjosos hotcakes tradicionales.", en: "Fluffy traditional pancakes." }, price: 12.00, image: "images/hotcakes.png", tags: [], spicyLevel: 0 },
+    { id: "des-22", categoryId: "desayunos", name: { es: "Gorditas de Queso (Orden de 3)", en: "Cheese Gorditas (Order of 3)" }, description: { es: "Masa de maíz con jalapeño y queso.", en: "Thick corn tortillas stuffed with cheese and jalapeño." }, price: 21.00, image: "", spicyLevel: 1 },
 
     // --- ENTRADAS ---
     { id: "ent-1", categoryId: "entradas", name: { es: "Guacamole Individual", en: "Single Guacamole" }, description: { es: "Guacamole fresco de la casa.", en: "Fresh house guacamole." }, price: 4.00, image: "", tags: [], spicyLevel: 0 },
@@ -93,7 +94,7 @@ const MENU_DATA = {
     { id: "ent-3", categoryId: "entradas", name: { es: "Cheese Dip", en: "Cheese Dip" }, description: { es: "Dip de queso derretido.", en: "Melted cheese dip." }, price: 6.00, image: "", tags: [], spicyLevel: 0 },
     { id: "ent-4", categoryId: "entradas", name: { es: "Gorditas de Queso (Orden de 3)", en: "Cheese Gorditas (Order of 3)" }, description: { es: "Maíz con jalapeño y queso.", en: "Corn with jalapeño and cheese." }, price: 21.00, image: "", tags: [], spicyLevel: 1 },
     { id: "ent-5", categoryId: "entradas", name: { es: "Carne Seca en Botana", en: "Beef Jerky Snack" }, description: { es: "Con pepino, Tostitos y cacahuates.", en: "With cucumber, Tostitos and peanuts." }, price: 15.00, image: "/images/carneseca.jpeg", tags: [], spicyLevel: 0 },
-    { id: "ent-6", categoryId: "entradas", name: { es: "Tuna", en: "Tuna" }, description: { es: "Botana de atún fresco.", en: "Fresh tuna snack." }, price: 29.99, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "ent-6", categoryId: "entradas", name: { es: "Tuna", en: "Tuna" }, description: { es: "Botana de atún fresco.", en: "Fresh tuna snack." }, price: 29.99, image: "", spicyLevel: 0 },
     { id: "ent-7", categoryId: "entradas", name: { es: "Jalapeños", en: "Jalapeños" }, description: { es: "6 chiles jalapeños con tocino y queso.", en: "6 jalapeño peppers with bacon and cheese." }, price: 19.99, image: "", tags: [], spicyLevel: 2 },
     { id: "ent-8", categoryId: "entradas", name: { es: "Camarones al Vapor", en: "Steamed Shrimp" }, description: { es: "Camarones al vapor estilo botana.", en: "Steamed shrimp snack style." }, price: 29.99, image: "", tags: [], spicyLevel: 0 },
 
@@ -103,25 +104,25 @@ const MENU_DATA = {
     { id: "mcal-3", categoryId: "mariscos-calientes", name: { es: "Camarones a la Cucaracha", en: "Cucaracha Shrimp" }, description: { es: "Acompañados de arroz y ensalada.", en: "Served with rice and salad." }, price: 29.99, image: "", tags: ["popular"], spicyLevel: 1 },
     { id: "mcal-4", categoryId: "mariscos-calientes", name: { es: "Camarones a la Mantequilla", en: "Butter Shrimp" }, description: { es: "Acompañados de arroz y ensalada.", en: "Served with rice and salad." }, price: 29.99, image: "", tags: [], spicyLevel: 0 },
     { id: "mcal-5", categoryId: "mariscos-calientes", name: { es: "Camarones al Mojo de Ajo", en: "Garlic Butter Shrimp" }, description: { es: "Acompañados de arroz y ensalada.", en: "Served with rice and salad." }, price: 29.99, image: "", tags: [], spicyLevel: 0 },
-    { id: "mcal-6", categoryId: "mariscos-calientes", name: { es: "Camarones a la Momia", en: "Mummy Shrimp" }, description: { es: "Camarones rellenos envueltos en tocino. Acompañados de arroz y ensalada.", en: "Stuffed shrimp wrapped in bacon. Served with rice and salad." }, price: 29.99, image: "/images/camaronestoc.jpeg", tags: ["chef"], spicyLevel: 0 },
+    { id: "mcal-6", categoryId: "mariscos-calientes", name: { es: "Camarones a la Momia", en: "Mummy Shrimp" }, description: { es: "Camarones rellenos envueltos en tocino. Acompañados de arroz y ensalada.", en: "Stuffed shrimp wrapped in bacon. Served with rice and salad." }, price: 29.99, image: "/images/camaronestoc.jpeg", spicyLevel: 0 },
     { id: "mcal-7", categoryId: "mariscos-calientes", name: { es: "Camarones a la Crema", en: "Creamy Shrimp" }, description: { es: "Chile pimiento, cebolla, tomate, cilantro y crema. Acompañados de arroz y ensalada.", en: "Bell pepper, onion, tomato, cilantro and cream. Served with rice and salad." }, price: 29.99, image: "", tags: [], spicyLevel: 0 },
     { id: "mcal-8", categoryId: "mariscos-calientes", name: { es: "Camarones Empanizados", en: "Breaded Shrimp" }, description: { es: "Acompañados de arroz y ensalada.", en: "Served with rice and salad." }, price: 29.99, image: "images/cempanizados.jpeg", tags: [], spicyLevel: 0 },
     { id: "mcal-9", categoryId: "mariscos-calientes", name: { es: "Caldo de Camarón", en: "Shrimp Soup" }, description: { es: "Caldo tradicional de camarón.", en: "Traditional shrimp soup." }, price: 29.99, image: "/images/Caldo.jpeg", tags: [], spicyLevel: 0 },
     { id: "mcal-10", categoryId: "mariscos-calientes", name: { es: "Caldo de Camarón y Pulpo", en: "Shrimp and Octopus Soup" }, description: { es: "Caldo combinado de camarón y pulpo.", en: "Combined shrimp and octopus soup." }, price: 35.00, image: "", tags: [], spicyLevel: 0 },
-    // ---  { id: "mcal-11", categoryId: "mariscos-calientes", name: { es: "Camarones Estilo Louisiana (4 personas)", en: "Louisiana Style Shrimp (Serves 4)" }, description: { es: "Estilo Louisiana ideal para compartir.", en: "Louisiana style perfect for sharing." }, price: 120.00, image: "", tags: ["chef"], spicyLevel: 2 },
+    // ---  { id: "mcal-11", categoryId: "mariscos-calientes", name: { es: "Camarones Estilo Louisiana (4 personas)", en: "Louisiana Style Shrimp (Serves 4)" }, description: { es: "Estilo Louisiana ideal para compartir.", en: "Louisiana style perfect for sharing." }, price: 120.00, image: "", spicyLevel: 2 },
     { id: "mcal-12", categoryId: "mariscos-calientes", name: { es: "Mojarra Frita", en: "Fried Mojarra" }, description: { es: "Acompañada de arroz y ensalada.", en: "Served with rice and salad." }, price: 27.00, image: "", tags: [], spicyLevel: 0 },
     // --- MARISCOS BARRA FRÍA ---
-    { id: "agu-1", categoryId: "mariscos-frios", name: { es: "Aguachiles Verdes", en: "Green Aguachiles" }, description: { es: "Curtidos en limón o cocidos.", en: "Lime-cured or cooked." }, price: 29.99, image: "/images/averde.jpeg", tags: [], spicyLevel: 2 },
-    { id: "agu-2", categoryId: "mariscos-frios", name: { es: "Aguachiles Rojos", en: "Red Aguachiles" }, description: { es: "Curtidos en limón o cocidos.", en: "Lime-cured or cooked." }, price: 29.99, image: "/images/arojo.jpeg", tags: [], spicyLevel: 2 },
+    { id: "agu-1", categoryId: "mariscos-frios", name: { es: "Aguachiles Verdes", en: "Green Aguachiles" }, description: { es: "Curtidos en limón o cocidos.", en: "Lime-cured or cooked." }, price: 29.99, image: "/images/AguachileVer.png", tags: [], spicyLevel: 2 },
+    { id: "agu-2", categoryId: "mariscos-frios", name: { es: "Aguachiles Rojos", en: "Red Aguachiles" }, description: { es: "Curtidos en limón o cocidos.", en: "Lime-cured or cooked." }, price: 29.99, image: "/images/aguarojo.png", tags: [], spicyLevel: 2 },
     { id: "agu-3", categoryId: "mariscos-frios", name: { es: "Aguachiles Piquín", en: "Piquin Aguachiles" }, description: { es: "Curtidos en limón o cocidos con chile piquín.", en: "Lime-cured or cooked with piquin pepper." }, price: 29.99, image: "images/ceviche2.jpeg", tags: [], spicyLevel: 3 },
     { id: "agu-4", categoryId: "mariscos-frios", name: { es: "Aguachiles Negros", en: "Black Aguachiles" }, description: { es: "Salsa negra de la casa. Curtidos en limón o cocidos.", en: "House black sauce. Lime-cured or cooked." }, price: 29.99, image: "", tags: ["popular"], spicyLevel: 2 },
     { id: "agu-5", categoryId: "mariscos-frios", name: { es: "Aguachiles al Guacamole", en: "Guacamole Aguachiles" }, description: { es: "Curtidos en limón o cocidos con crema de guacamole.", en: "Lime-cured or cooked with guacamole cream." }, price: 29.99, image: "", tags: [], spicyLevel: 1 },
     { id: "agu-6", categoryId: "mariscos-frios", name: { es: "Aguachiles Mango Habanero", en: "Mango Habanero Aguachiles" }, description: { es: "Curtidos en limón o cocidos con salsa de mango habanero.", en: "Lime-cured or cooked with mango habanero sauce." }, price: 29.99, image: "", tags: [], spicyLevel: 3 },
-    { id: "agu-7", categoryId: "mariscos-frios", name: { es: "Charola Botanera de Aguachiles y Ceviches", en: "Aguachiles & Ceviches Snack Tray" }, description: { es: "Variedad de hasta 5 sabores.", en: "Variety of up to 5 flavors." }, price: 80.00, image: "", tags: ["chef"], spicyLevel: 2 },
-    { id: "agu-8", categoryId: "mariscos-frios", name: { es: "Pecado en La Luna", en: "Pecado en La Luna" }, description: { es: "Especialidad de la casa.", en: "House specialty." }, price: 54.00, image: "images/CAGUAMA.png", tags: ["chef"], spicyLevel: 2 },
+    { id: "agu-7", categoryId: "mariscos-frios", name: { es: "Charola Botanera de Aguachiles y Ceviches", en: "Aguachiles & Ceviches Snack Tray" }, description: { es: "Variedad de hasta 5 sabores.", en: "Variety of up to 5 flavors." }, price: 80.00, image: "", spicyLevel: 2 },
+    { id: "agu-8", categoryId: "mariscos-frios", name: { es: "Pecado en La Luna", en: "Pecado en La Luna" }, description: { es: "Especialidad de la casa.", en: "House specialty." }, price: 54.00, image: "images/cagu.png", spicyLevel: 2 },
     { id: "agu-9", categoryId: "mariscos-frios", name: { es: "Torre Sencilla de Camarón", en: "Simple Shrimp Tower" }, description: { es: "Torre de camarón fresco estilo barra fría.", en: "Fresh cold bar shrimp tower." }, price: 35.00, image: "", tags: [], spicyLevel: 1 },
-    { id: "agu-10", categoryId: "mariscos-frios", name: { es: "Torre Luna", en: "Luna Tower" }, description: { es: "Callo de hacha, pulpo, camarón cocido/curtido, ceviche de camarón y pescado.", en: "Scallops, octopus, cooked/cured shrimp, shrimp & fish ceviche." }, price: 55.00, image: "", tags: ["chef", "popular"], spicyLevel: 1 },
-    { id: "agu-11", categoryId: "mariscos-frios", name: { es: "Aguachile 3 Salsas", en: "3 Sauces Aguachile" }, description: { es: "Combinación de salsa roja, verde y negra.", en: "Combination of red, green, and black sauce." }, price: 38.00, image: "", tags: [], spicyLevel: 2 },
+    { id: "agu-10", categoryId: "mariscos-frios", name: { es: "Torre Luna", en: "Luna Tower" }, description: { es: "Callo de hacha, pulpo, camarón cocido/curtido, ceviche de camarón y pescado.", en: "Scallops, octopus, cooked/cured shrimp, shrimp & fish ceviche." }, price: 55.00, image: "", spicyLevel: 1 },
+    { id: "agu-11", categoryId: "mariscos-frios", name: { es: "Aguachile 3 Salsas", en: "3 Sauces Aguachile" }, description: { es: "Combinación de salsa roja, verde y negra.", en: "Combination of red, green, and black sauce." }, price: 38.00, image: "images/3aguas.png", spicyLevel: 2 },
     { id: "agu-12", categoryId: "mariscos-frios", name: { es: "Aguachile Mixto con Ceviche", en: "Mixed Aguachile with Ceviche" }, description: { es: "Combinación de aguachile y ceviche.", en: "Combination of aguachile and ceviche." }, price: 38.00, image: "", tags: [], spicyLevel: 2 },
     { id: "cev-1", categoryId: "mariscos-frios", name: { es: "Ceviche de Camarón Cocido", en: "Cooked Shrimp Ceviche" }, description: { es: "Camarón cocido con verdura fresca y limón.", en: "Cooked shrimp with fresh vegetables and lime." }, price: 29.99, image: "", tags: [], spicyLevel: 0 },
     { id: "cev-2", categoryId: "mariscos-frios", name: { es: "Ceviche de Camarón Curtido", en: "Lime-Cured Shrimp Ceviche" }, description: { es: "Camarón curtido en limón con verdura fresca.", en: "Lime-cured shrimp with fresh vegetables." }, price: 29.99, image: "", tags: [], spicyLevel: 1 },
@@ -136,25 +137,25 @@ const MENU_DATA = {
     { id: "tos-2", categoryId: "mariscos-frios", name: { es: "Tostada de Pescado", en: "Fish Tostada" }, description: { es: "Tostada de ceviche de pescado.", en: "Fish ceviche tostada." }, price: 13.00, image: "", tags: [], spicyLevel: 0 },
     { id: "tos-3", categoryId: "mariscos-frios", name: { es: "Tostada de Ceviche o Aguachile con Pulpo", en: "Ceviche or Aguachile Tostada with Octopus" }, description: { es: "Tostada de ceviche/aguachile con pulpo.", en: "Ceviche/aguachile tostada topped with octopus." }, price: 18.00, image: "", tags: ["popular"], spicyLevel: 1 },
     { id: "tos-4", categoryId: "mariscos-frios", name: { es: "Tostada de Aguachile", en: "Aguachile Tostada" }, description: { es: "A elegir: verde, rojo, negro, piquín, al guacamole o mango habanero.", en: "Choice of: green, red, black, piquin, guacamole or mango habanero." }, price: 14.99, image: "/images/tostadaaguachile.jpeg", tags: [], spicyLevel: 2 },
-    { id: "chi-1", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro", en: "Santa María del Oro Style Fish Chicharrón" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 32.99, image: "", tags: ["chef"], spicyLevel: 0 },
-    { id: "chi-2", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro (Para 4 personas)", en: "Santa María del Oro Style Fish Chicharrón (Serves 4)" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 115.00, image: "images/chicharrondepescado.jpeg", tags: ["chef", "popular"], spicyLevel: 0 },
-    { id: "bal-1", categoryId: "mariscos-frios", name: { es: "Balazos", en: "Balazos (Spicy Shrimp Shots)" }, description: { es: "Shot de camarón curtido en limón con clamato y salsa picante estilo Nayarit.", en: "Lime-cured shrimp shot with clamato and spicy Nayarit-style sauce." }, price: 26.00, image: "images/balazo.jpeg", tags: ["chef"], spicyLevel: 2 },
+    { id: "chi-1", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro", en: "Santa María del Oro Style Fish Chicharrón" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 32.99, image: "", spicyLevel: 0 },
+    { id: "chi-2", categoryId: "mariscos-calientes", name: { es: "Chicharrón de Pescado Estilo Santa María del Oro (Para 4 personas)", en: "Santa María del Oro Style Fish Chicharrón (Serves 4)" }, description: { es: "Acompañado de guacamole, salsa mexicana, salsa verde de la casa, aderezo chipotle y tortillas hechas a mano.", en: "Served with guacamole, Mexican salsa, house green salsa, chipotle dressing, and handmade tortillas." }, price: 115.00, image: "images/chicharron.png", tags: ["chef", "popular"], spicyLevel: 0 },
+    { id: "bal-1", categoryId: "mariscos-frios", name: { es: "Balazos", en: "Balazos (Spicy Shrimp Shots)" }, description: { es: "Shot de camarón curtido en limón con clamato y salsa picante estilo Nayarit.", en: "Lime-cured shrimp shot with clamato and spicy Nayarit-style sauce." }, price: 26.00, image: "images/balazo.jpeg", spicyLevel: 2 },
     // --- CORTES & PARRILLA ---
-    { id: "esp-1", categoryId: "cortes", name: { es: "Steak Sirloin (8 oz)", en: "Sirloin Steak (8 oz)" }, description: { es: "Corte de Sirloin 8 oz. Incluye 2 acompañamientos a elegir.", en: "8 oz Sirloin cut. Includes choice of 2 sides." }, price: 26.99, image: "", tags: ["chef"], spicyLevel: 0 },
-    { id: "esp-2", categoryId: "cortes", name: { es: "Steak T-Bone (12 oz)", en: "T-Bone Steak (12 oz)" }, description: { es: "Corte T-Bone 12 oz. Incluye 2 acompañamientos a elegir.", en: "12 oz T-Bone cut. Includes choice of 2 sides." }, price: 31.99, image: "images/steak2.jpeg", tags: ["chef"], spicyLevel: 0 },
+    { id: "esp-1", categoryId: "cortes", name: { es: "Steak Sirloin (8 oz)", en: "Sirloin Steak (8 oz)" }, description: { es: "Corte de Sirloin 8 oz. Incluye 2 acompañamientos a elegir.", en: "8 oz Sirloin cut. Includes choice of 2 sides." }, price: 26.99, image: "", spicyLevel: 0 },
+    { id: "esp-2", categoryId: "cortes", name: { es: "Steak T-Bone (12 oz)", en: "T-Bone Steak (12 oz)" }, description: { es: "Corte T-Bone 12 oz. Incluye 2 acompañamientos a elegir.", en: "12 oz T-Bone cut. Includes choice of 2 sides." }, price: 31.99, image: "images/steak2.jpeg", spicyLevel: 0 },
     { id: "lun-1", categoryId: "cortes", name: { es: "Fajitas de Pollo", en: "Chicken Fajitas" }, description: { es: "Fajitas de pollo con pimientos y cebolla.", en: "Chicken fajitas with peppers and onions." }, price: 26.00, image: "", tags: [], spicyLevel: 0 },
     { id: "lun-2", categoryId: "cortes", name: { es: "Fajitas de Res", en: "Beef Fajitas" }, description: { es: "Fajitas de res con pimientos y cebolla.", en: "Beef fajitas with peppers and onions." }, price: 27.00, image: "", tags: [], spicyLevel: 0 },
     { id: "lun-3", categoryId: "cortes", name: { es: "Fajitas de Camarón", en: "Shrimp Fajitas" }, description: { es: "Fajitas de camarón con pimientos y cebolla.", en: "Shrimp fajitas with peppers and onions." }, price: 29.99, image: "", tags: [], spicyLevel: 0 },
     { id: "lun-4", categoryId: "cortes", name: { es: "Carne Asada", en: "Carne Asada" }, description: { es: "Platillo tradicional de carne asada.", en: "Traditional grilled steak plate." }, price: 30.00, image: "", tags: ["popular"], spicyLevel: 0 },
-    { id: "lun-5", categoryId: "cortes", name: { es: "Carne Asada de Arrachera", en: "Skirt Steak Carne Asada" }, description: { es: "Corte de arrachera a la parrilla.", en: "Grilled skirt steak cut." }, price: 36.00, image: "", tags: ["chef"], spicyLevel: 0 },
-    { id: "lun-6", categoryId: "cortes", name: { es: "Carne Asada con Camarón", en: "Carne Asada with Shrimp" }, description: { es: "Carne asada combinada con camarones.", en: "Carne asada combined with shrimp." }, price: 33.00, image: "/images/carnecamaron.jpeg", tags: [], spicyLevel: 0 },
+    { id: "lun-5", categoryId: "cortes", name: { es: "Carne Asada de Arrachera", en: "Skirt Steak Carne Asada" }, description: { es: "Corte de arrachera a la parrilla.", en: "Grilled skirt steak cut." }, price: 36.00, image: "", spicyLevel: 0 },
+    { id: "lun-6", categoryId: "cortes", name: { es: "Carne Asada con Camarón", en: "Carne Asada with Shrimp" }, description: { es: "Carne asada combinada con camarones.", en: "Carne asada combined with shrimp." }, price: 33.00, image: "/images/carne1.png", tags: [], spicyLevel: 0 },
     { id: "lun-7", categoryId: "cortes", name: { es: "Chile Colorado de Res", en: "Beef Chile Colorado" }, description: { es: "Carne de res en guisado de chile colorado.", en: "Beef stewed in red chile sauce." }, price: 26.00, image: "", tags: [], spicyLevel: 1 },
     { id: "lun-8", categoryId: "cortes", name: { es: "Chile Verde de Pork", en: "Pork Chile Verde" }, description: { es: "Carne de cerdo en guisado de chile verde.", en: "Pork stewed in green chile sauce." }, price: 26.00, image: "", tags: [], spicyLevel: 1 },
-    { id: "lun-10", categoryId: "cortes", name: { es: "Molcajete C.M.T. (Para 2 personas)", en: "C.M.T. Molcajete (Serves 2)" }, description: { es: "Servido caliente en molcajete tradicional.", en: "Served hot in traditional molcajete." }, price: 42.00, image: "", tags: ["chef"], spicyLevel: 1 },
+    { id: "lun-10", categoryId: "cortes", name: { es: "Molcajete C.M.T. (Para 2 personas)", en: "C.M.T. Molcajete (Serves 2)" }, description: { es: "Servido caliente en molcajete tradicional.", en: "Served hot in traditional molcajete." }, price: 42.00, image: "", spicyLevel: 1 },
 
     // --- TACOS & ANTOJITOS ---
-    { id: "lun-9", categoryId: "antojitos", name: { es: "PizzaBirria", en: "PizzaBirria" }, description: { es: "Especialidad de birria estilo pizza.", en: "Birria specialty pizza style." }, price: 32, image: "/images/pizzabirria.jpeg", tags: ["popular"], spicyLevel: 0 },
-    { id: "tac-1", categoryId: "antojitos", name: { es: "Tacos (Asada, Pastor, Pollo o Adobada)", en: "Tacos (Asada, Pastor, Chicken or Adobada)" }, description: { es: "Taco individual a elegir carne.", en: "Single taco with choice of meat." }, price: 5.00, image: "images/tacos2.jpeg", tags: [], spicyLevel: 0 },
+    { id: "lun-9", categoryId: "antojitos", name: { es: "PizzaBirria", en: "PizzaBirria" }, description: { es: "Especialidad de birria estilo pizza.", en: "Birria specialty pizza style." }, price: 32, image: "/images/pbirria.png", tags: ["popular"], spicyLevel: 0 },
+    { id: "tac-1", categoryId: "antojitos", name: { es: "Tacos (Asada, Pastor, Pollo o Adobada)", en: "Tacos (Asada, Pastor, Chicken or Adobada)" }, description: { es: "Taco individual a elegir carne.", en: "Single taco with choice of meat." }, price: 5.00, image: "images/taquitos.png", tags: [], spicyLevel: 0 },
     { id: "tac-2", categoryId: "antojitos", name: { es: "Taco de Lengua", en: "Beef Tongue Taco" }, description: { es: "Taco suave de lengua de res.", en: "Tender beef tongue taco." }, price: 7.00, image: "", tags: [], spicyLevel: 0 },
     { id: "tac-3", categoryId: "antojitos", name: { es: "Quesabirrias (Orden de 3)", en: "Quesabirrias (Order of 3)" }, description: { es: "Orden de 3 quesabirrias con consomé.", en: "Order of 3 quesabirrias with broth." }, price: 22.00, image: "", tags: ["popular"], spicyLevel: 0 },
     { id: "tac-4", categoryId: "antojitos", name: { es: "Tacos Capeados de Camarón (Orden de 3)", en: "Battered Shrimp Tacos (Order of 3)" }, description: { es: "3 tacos de camarón capeado.", en: "3 battered shrimp tacos." }, price: 22.00, image: "", tags: [], spicyLevel: 0 },
@@ -169,7 +170,7 @@ const MENU_DATA = {
     { id: "que-4", categoryId: "antojitos", name: { es: "Quesadilla de Lengua", en: "Beef Tongue Quesadilla" }, description: { es: "Quesadilla grande con lengua de res.", en: "Large quesadilla with beef tongue." }, price: 18.00, image: "", tags: [], spicyLevel: 0 },
     // --- BURRITOS ---
     { id: "bur-1", categoryId: "antojitos", name: { es: "Burrito Plain (Queso, Frijoles y Arroz)", en: "Plain Burrito (Cheese, Beans & Rice)" }, description: { es: "Tortilla de harina rellena de queso, frijoles y arroz.", en: "Flour tortilla filled with cheese, beans and rice." }, price: 12.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "bur-2", categoryId: "antojitos", name: { es: "Burrito (Asada, Adobada o Pollo)", en: "Burrito (Asada, Adobada or Chicken)" }, description: { es: "Burrito grande con tu carne a elegir.", en: "Large burrito with your choice of meat." }, price: 16.99, image: "", tags: [], spicyLevel: 0 },
+    { id: "bur-2", categoryId: "antojitos", name: { es: "Burrito (Asada, Adobada o Pollo)", en: "Burrito (Asada, Adobada or Chicken)" }, description: { es: "Burrito grande con tu carne a elegir.", en: "Large burrito with your choice of meat." }, price: 16.99, image: "images/burri.png", tags: [], spicyLevel: 0 },
     { id: "bur-3", categoryId: "antojitos", name: { es: "Burrito de Lengua", en: "Beef Tongue Burrito" }, description: { es: "Burrito relleno de lengua de res.", en: "Burrito filled with beef tongue." }, price: 18.00, image: "", tags: [], spicyLevel: 0 },
     { id: "bur-4", categoryId: "antojitos", name: { es: "Burrito de Chile Colorado de Res", en: "Beef Chile Colorado Burrito" }, description: { es: "Relleno de carne de res en salsa de chile colorado.", en: "Filled with beef stewed in red chile sauce." }, price: 16.99, image: "", tags: [], spicyLevel: 1 },
     { id: "bur-5", categoryId: "antojitos", name: { es: "Burrito de Chile Verde de Cerdo", en: "Pork Chile Verde Burrito" }, description: { es: "Relleno de carne de cerdo en salsa de chile verde.", en: "Filled with pork stewed in green chile sauce." }, price: 16.99, image: "", tags: [], spicyLevel: 1 },
@@ -187,7 +188,7 @@ const MENU_DATA = {
     { id: "ham-1", categoryId: "burgers-wings", name: { es: "Hamburguesa de Res", en: "Beef Burger" }, description: { es: "Hamburguesa clásica de res.", en: "Classic beef burger." }, price: 21.00, image: "", tags: [], spicyLevel: 0 },
     { id: "ham-2", categoryId: "burgers-wings", name: { es: "Hamburguesa Hawaiian", en: "Hawaiian Burger" }, description: { es: "Con piña y queso derretido.", en: "With pineapple and melted cheese." }, price: 22.00, image: "", tags: [], spicyLevel: 0 },
     { id: "ham-3", categoryId: "burgers-wings", name: { es: "Hamburguesa de Camarón", en: "Shrimp Burger" }, description: { es: "Hamburguesa de camarones sazonados.", en: "Burger with seasoned shrimp." }, price: 23.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "ham-4", categoryId: "burgers-wings", name: { es: "Hamburguesa Mar y Tierra", en: "Surf & Turf Burger" }, description: { es: "Combinación de carne de res y camarón.", en: "Combination of beef patty and shrimp." }, price: 23.00, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "ham-4", categoryId: "burgers-wings", name: { es: "Hamburguesa Mar y Tierra", en: "Surf & Turf Burger" }, description: { es: "Combinación de carne de res y camarón.", en: "Combination of beef patty and shrimp." }, price: 23.00, image: "", spicyLevel: 0 },
     { id: "win-1", categoryId: "burgers-wings", name: { es: "Alitas Mango Habanero (6 pcs)", en: "Mango Habanero Wings (6 pcs)" }, description: { es: "6 piezas de alitas en salsa mango habanero.", en: "6 pieces of wings in mango habanero sauce." }, price: 13.00, image: "", tags: [], spicyLevel: 3 },
     { id: "win-2", categoryId: "burgers-wings", name: { es: "Alitas Búfalo (6 pcs)", en: "Buffalo Wings (6 pcs)" }, description: { es: "6 piezas de alitas en salsa búfalo picante.", en: "6 pieces of wings in spicy buffalo sauce." }, price: 13.00, image: "", tags: [], spicyLevel: 2 },
     { id: "win-3", categoryId: "burgers-wings", name: { es: "Alitas BBQ (6 pcs)", en: "BBQ Wings (6 pcs)" }, description: { es: "6 piezas de alitas en salsa BBQ agridulce.", en: "6 pieces of wings in sweet BBQ sauce." }, price: 13.00, image: "", tags: [], spicyLevel: 0 },
@@ -243,10 +244,10 @@ const MENU_DATA = {
 
     // Cócteles
     { id: "beb-20", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Margarita Tradicional", en: "Traditional Margarita" }, description: { es: "Tequila, licor de naranja y jugo de limón fresco.", en: "Tequila, orange liqueur and fresh lime juice." }, price: 12.00, image: "", tags: ["popular"], spicyLevel: 0 },
-    { id: "beb-21", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Margarita de Sabor", en: "Flavored Margarita" }, description: { es: "A elegir: Fresa, Mango, Tamarindo, Maracuyá o Piña.", en: "Choice of: Strawberry, Mango, Tamarind, Passion Fruit or Pineapple." }, price: 14.00, image: "images/margaritas.jpeg", tags: [], spicyLevel: 0 },
-    { id: "beb-22", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Margarita Cadillacs", en: "Cadillac Margarita" }, description: { es: "Tequila reposado, Grand Marnier y jugo de limón.", en: "Reposado tequila, Grand Marnier and lime juice." }, price: 16.00, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "beb-21", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Margarita de Sabor", en: "Flavored Margarita" }, description: { es: "A elegir: Fresa, Mango, Tamarindo, Maracuyá o Piña.", en: "Choice of: Strawberry, Mango, Tamarind, Passion Fruit or Pineapple." }, price: 14.00, image: "images/margari.png", tags: [], spicyLevel: 0 },
+    { id: "beb-22", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Margarita Cadillacs", en: "Cadillac Margarita" }, description: { es: "Tequila reposado, Grand Marnier y jugo de limón.", en: "Reposado tequila, Grand Marnier and lime juice." }, price: 16.00, image: "", spicyLevel: 0 },
     { id: "beb-23", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Piña Colada", en: "Piña Colada" }, description: { es: "Ron blanco, crema de coco y jugo de piña.", en: "White rum, coconut cream and pineapple juice." }, price: 12.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "beb-24", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Cantarito", en: "Cantarito" }, description: { es: "Tequila, jugo de toronja, naranja, limón, refresco de toronja y sal.", en: "Tequila, grapefruit, orange and lime juice, grapefruit soda and salt." }, price: 14.00, image: "", tags: ["popular"], spicyLevel: 0 },
+    { id: "beb-24", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Cantarito", en: "Cantarito" }, description: { es: "Tequila, jugo de toronja, naranja, limón, refresco de toronja y sal.", en: "Tequila, grapefruit, orange and lime juice, grapefruit soda and salt." }, price: 14.00, image: "images/cantarito1.png", tags: ["popular"], spicyLevel: 0 },
     { id: "beb-25", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Mojito Tradicional", en: "Traditional Mojito" }, description: { es: "Ron, hierbabuena fresca, azúcar, limón y agua mineral.", en: "Rum, fresh mint, sugar, lime and sparkling water." }, price: 12.00, image: "", tags: [], spicyLevel: 0 },
     { id: "beb-26", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Mojito de Sabor", en: "Flavored Mojito" }, description: { es: "A elegir: Fresa, Mango, Maracuyá o Frutos Rojos.", en: "Choice of: Strawberry, Mango, Passion Fruit or Red Berries." }, price: 14.00, image: "/images/margarita.jpeg", tags: [], spicyLevel: 0 },
     { id: "beb-27", categoryId: "bebidas", subcategoryId: "cocteles", name: { es: "Paloma", en: "Paloma" }, description: { es: "Tequila, refresco de toronja, limón y sal.", en: "Tequila, grapefruit soda, lime and salt." }, price: 11.00, image: "", tags: [], spicyLevel: 0 },
@@ -261,7 +262,7 @@ const MENU_DATA = {
 
     // Shots / Rondas
     { id: "beb-36", categoryId: "bebidas", subcategoryId: "shots-rondas", name: { es: "Shot de Tequila de la Casa", en: "House Tequila Shot" }, description: { es: "Caballito de tequila servido con limón y sal.", en: "Tequila shot served with lime and salt." }, price: 6.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "beb-37", categoryId: "bebidas", subcategoryId: "shots-rondas", name: { es: "Shot Don Julio 70", en: "Don Julio 70 Shot" }, description: { es: "Caballito de Tequila Don Julio 70.", en: "Don Julio 70 Tequila shot." }, price: 12.00, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "beb-37", categoryId: "bebidas", subcategoryId: "shots-rondas", name: { es: "Shot Don Julio 70", en: "Don Julio 70 Shot" }, description: { es: "Caballito de Tequila Don Julio 70.", en: "Don Julio 70 Tequila shot." }, price: 12.00, image: "", spicyLevel: 0 },
     { id: "beb-38", categoryId: "bebidas", subcategoryId: "shots-rondas", name: { es: "Shot Fireball", en: "Fireball Shot" }, description: { es: "Whisky de canela.", en: "Cinnamon whisky shot." }, price: 7.00, image: "", tags: [], spicyLevel: 0 },
     { id: "beb-39", categoryId: "bebidas", subcategoryId: "shots-rondas", name: { es: "Shot Lemon Drop", en: "Lemon Drop Shot" }, description: { es: "Vodka, licor de naranja y jugo de limón con azúcar.", en: "Vodka, orange liqueur and lime juice with sugar." }, price: 8.00, image: "", tags: [], spicyLevel: 0 },
     { id: "beb-40", categoryId: "bebidas", subcategoryId: "shots-rondas", name: { es: "Shot B-52", en: "B-52 Shot" }, description: { es: "Kahlúa, Baileys y Grand Marnier en capas.", en: "Layered Kahlúa, Baileys and Grand Marnier." }, price: 9.00, image: "", tags: [], spicyLevel: 0 },
@@ -288,10 +289,10 @@ const MENU_DATA = {
     // Tequila
     { id: "beb-56", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Copa Don Julio Blanco", en: "Don Julio Blanco (Glass)" }, description: { es: "Trago de tequila Don Julio Blanco.", en: "Glass of Don Julio Blanco tequila." }, price: 11.00, image: "", tags: [], spicyLevel: 0 },
     { id: "beb-57", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Copa Don Julio Reposado", en: "Don Julio Reposado (Glass)" }, description: { es: "Trago de tequila Don Julio Reposado.", en: "Glass of Don Julio Reposado tequila." }, price: 12.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "beb-58", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Copa Don Julio 70", en: "Don Julio 70 (Glass)" }, description: { es: "Trago de tequila cristalino Don Julio 70.", en: "Glass of Don Julio 70 añejo cristalino tequila." }, price: 15.00, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "beb-58", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Copa Don Julio 70", en: "Don Julio 70 (Glass)" }, description: { es: "Trago de tequila cristalino Don Julio 70.", en: "Glass of Don Julio 70 añejo cristalino tequila." }, price: 15.00, image: "", spicyLevel: 0 },
     { id: "beb-59", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Copa 1800 Reposado / Cristalino", en: "1800 Reposado / Cristalino (Glass)" }, description: { es: "Trago de Tequila 1800.", en: "Glass of 1800 Tequila." }, price: 12.00, image: "", tags: [], spicyLevel: 0 },
     { id: "beb-60", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Copa Casamigos Blanco / Reposado", en: "Casamigos Blanco / Reposado (Glass)" }, description: { es: "Trago de Tequila Casamigos.", en: "Glass of Casamigos Tequila." }, price: 14.00, image: "", tags: [], spicyLevel: 0 },
-    { id: "beb-61", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Botella Don Julio 70", en: "Don Julio 70 Bottle" }, description: { es: "Botella incluye 4 refrescos o mezcladores.", en: "Bottle includes 4 sodas or mixers." }, price: 160.00, image: "", tags: ["chef"], spicyLevel: 0 },
+    { id: "beb-61", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Botella Don Julio 70", en: "Don Julio 70 Bottle" }, description: { es: "Botella incluye 4 refrescos o mezcladores.", en: "Bottle includes 4 sodas or mixers." }, price: 160.00, image: "", spicyLevel: 0 },
     { id: "beb-62", categoryId: "bebidas", subcategoryId: "tequila", name: { es: "Botella 1800 Reposado", en: "1800 Reposado Bottle" }, description: { es: "Botella incluye 4 refrescos o mezcladores.", en: "Bottle includes 4 sodas or mixers." }, price: 130.00, image: "", tags: [], spicyLevel: 0 },
 
     // Whisky & Vino
@@ -385,8 +386,8 @@ export default function App() {
       const matchesSearch = !query || nameText.includes(query) || descText.includes(query);
 
       const matchesSpicy = !filterSpicy || item.spicyLevel > 0;
-      const matchesChef = !filterChef || item.tags.includes('chef');
-      const matchesPromo = !filterPromo || item.tags.includes('promo');
+      const matchesChef = !filterChef || item.tags.includes('chef') && ('');
+      const matchesPromo = !filterPromo || item.tags.includes('promo') && ('');
 
       return matchesCategory && matchesSearch && matchesSpicy && matchesChef && matchesPromo;
     });
@@ -464,6 +465,7 @@ export default function App() {
             <h1 className="text-3xl sm:text-4xl font-light tracking-[0.3em] text-white font-serif uppercase leading-none">
               LA LUNΛ
             </h1>
+
             <div className="flex items-center justify-center gap-3 mt-2">
               <span className="h-[1px] w-8 bg-neutral-600"></span>
               <span className="text-[10px] sm:text-xs tracking-[0.35em] text-neutral-300 font-light uppercase">
@@ -471,6 +473,7 @@ export default function App() {
               </span>
               <span className="h-[1px] w-8 bg-neutral-600"></span>
             </div>
+            {/* <h2 className="text-[10px]">MEXICAN FOOD </h2>*/}
           </button>
 
           {/* BUSCADOR */}
@@ -656,15 +659,25 @@ export default function App() {
             className="bg-[#121212] border border-neutral-800 rounded-t-2xl sm:rounded-2xl w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative h-56 sm:h-64 bg-neutral-950 border-b border-neutral-800 flex items-center justify-center">
+            <div className="relative w-full flex-shrink-0 border-b border-neutral-800 overflow-hidden bg-neutral-950">
               {selectedItem.image ? (
-                <img
-                  src={selectedItem.image}
-                  alt={selectedItem.name[language]}
-                  className="w-full h-full object-contain p-2"
-                />
+                <>
+                  {/* Fondo difuminado por si sobran bordes */}
+                  <img
+                    src={selectedItem.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover scale-125 blur-2xl opacity-50"
+                  />
+                  {/* Imagen completa, a todo el ancho, con su proporción original */}
+                  <img
+                    src={selectedItem.image}
+                    alt={selectedItem.name[language]}
+                    className="relative block w-full h-auto max-h-[60vh] object-contain mx-auto"
+                  />
+                </>
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-neutral-900 to-[#121212] text-neutral-600">
+                <div className="w-full aspect-[4/3] flex flex-col items-center justify-center bg-gradient-to-b from-neutral-900 to-[#121212] text-neutral-600">
                   <UtensilsCrossed className="w-10 h-10 stroke-[1] mb-2 text-neutral-700" />
                   <span className="text-xs tracking-widest uppercase font-serif text-neutral-500">
                     LA LUNA KITCHEN & BAR
@@ -675,13 +688,14 @@ export default function App() {
               <button
                 onClick={() => setSelectedItem(null)}
                 aria-label={t.close}
-                className="absolute top-3 right-3 bg-black/60 hover:bg-black text-white p-2 rounded-full backdrop-blur-md border border-white/10 transition-colors"
+                className="absolute top-3 right-3 z-10 bg-black/60 hover:bg-black text-white p-2 rounded-full backdrop-blur-md border border-white/10 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="p-6 overflow-y-auto flex-1">
+
+            <div className="p-6 overflow-y-auto flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex items-start justify-between gap-4 mt-2">
                 <h2 className="text-xl font-medium text-white font-serif leading-snug">
                   {selectedItem.name[language]}
@@ -739,13 +753,13 @@ function ItemList({ items, language, t, onSelect }) {
           <div className="flex-1 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                {item.tags.includes('chef') && (
+                {(item.tags ?? []).includes('chef') && (
                   <span className="inline-flex items-center gap-1 text-[10px] uppercase font-semibold text-[#C5A880] bg-[#C5A880]/10 border border-[#C5A880]/30 px-2 py-0.5 rounded">
                     <Award className="w-3 h-3" />
                     {language === 'es' ? 'Especial' : 'Special'}
                   </span>
                 )}
-                {item.tags.includes('promo') && (
+                {(item.tags ?? []).includes('promo') && (
                   <span className="inline-flex items-center gap-1 text-[10px] uppercase font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded">
                     <Tag className="w-3 h-3" />
                     {language === 'es' ? 'Promo del Mes' : 'Promo'}
